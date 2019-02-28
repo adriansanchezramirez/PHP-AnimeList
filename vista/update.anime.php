@@ -33,9 +33,10 @@ if (!isset($_SESSION["nombre"])){
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-12">
-                <form id="login-form" action="index.php?mod=anime&ope=update&idAni=<?= $id ?>" method="GET" role="form" style="display: block;">
+                <form id="login-form" action="index.php" method="GET" role="form" style="display: block;">
                 <input id="mod" name="mod" type="hidden" value="anime">
                 <input id="ope" name="ope" type="hidden" value="update">
+                <input id="idAni" name="idAni" type="hidden" value="<?= $id ?>">
                     <div class="form-group">
                         <input type="text" name="nom" id="nom" tabindex="1" class="form-control" autofocus value="<?= $nombre ?>" placeholder="Nombre" value="">
                     </div>
