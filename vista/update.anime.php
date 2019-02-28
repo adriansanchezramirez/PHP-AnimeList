@@ -1,3 +1,10 @@
+<?php  
+//iniciamos session
+$sesion=session_start();
+if (!isset($_SESSION["nombre"])){
+	header("Location: index.php?mod=anime&ope=index");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +20,7 @@
 </head>
 <body>
 <div id="marco">
-            <div id="inicio"><a href="index.php?mod=usuario&ope=sigin">Iniciar Sesion</a></div>
+
             <div id="animelist"><a href="index.php?mod=anime&ope=index">Lista de Anime</a></div>
         </div>
         
@@ -26,22 +33,28 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-12">
-                <form id="login-form" action="index.php" method="GET" role="form" style="display: block;">
-                <input id="mod" name="mod" type="hidden" value="usuario">
-                <input id="ope" name="ope" type="hidden" value="create">
+                <form id="login-form" action="index.php?mod=anime&ope=update&idAni=<?= $id ?>" method="GET" role="form" style="display: block;">
+                <input id="mod" name="mod" type="hidden" value="anime">
+                <input id="ope" name="ope" type="hidden" value="update">
                     <div class="form-group">
-                        <input type="text" name="nom" id="nom" tabindex="1" class="form-control" placeholder="Nombre" value="">
+                        <input type="text" name="nom" id="nom" tabindex="1" class="form-control" autofocus value="<?= $nombre ?>" placeholder="Nombre" value="">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="pass" id="pass" tabindex="2" class="form-control" placeholder="Contraseña">
+                        <input type="text" name="nepi" id="nepii" tabindex="1" class="form-control" autofocus value="<?= $nepi ?>" placeholder="Episodios" value="">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="ema" id="ema" tabindex="1" class="form-control" placeholder="Email" value="">
+                        <input type="text" name="cat" id="cat" tabindex="1" class="form-control" autofocus value="<?= $categoria ?>" placeholder="Categoria" value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="descr" id="descr" tabindex="1" class="form-control" autofocus value="<?= $descripcion ?>" placeholder="Descripción" value="">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="car" id="car" tabindex="1" class="form-control" autofocus value="<?= $caratula ?>" placeholder="Ruta de la Caratula" value="">
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Registrarse">
+                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Agregar">
                             </div>
                         </div>
                     </div>

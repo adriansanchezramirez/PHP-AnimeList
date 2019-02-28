@@ -24,9 +24,9 @@ class ListaAnime{
          ":ida"=>$this->idAni]) ;
     }
 
-    public function getallAnimeByUsuario(){
+    public static function getallAnimeByUsuario(){
         $bd = Database::getInstance() ;
-        $bd->doQuery("SELECT a.nombre, a.nepi, a.categoria,a.descripcion FROM listanime AS L, anime AS A, usuario AS U WHERE L.idUsu=U.idUsu AND L.idAni=A.idAni;") ;
+        $bd->doQuery("SELECT * FROM listanime ;") ;
 
         $valor = [] ;
 
@@ -34,7 +34,7 @@ class ListaAnime{
             array_push($valor,$obj);
         }
  
-        return $datos;
+        return $valor;
     }
 
     

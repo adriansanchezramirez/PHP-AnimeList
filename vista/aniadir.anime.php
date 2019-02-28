@@ -1,3 +1,11 @@
+<?php  
+//iniciamos session
+$sesion=session_start();
+if (!isset($_SESSION["nombre"])){
+	header("Location: index.php?mod=anime&ope=index");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/estilo.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <title>Lista de Anime</title>
 </head>
 <body>
     <div id="marco">
 			<div id="inicio"><a href="index.php?mod=usuario&ope=logout">Salir de la Sesión</a></div>
-			<div id="registro"><a href="">Perfil</a></div>
+			<div id="registro"><a href="index.php?mod=anime&ope=create">Añadir Anime</a></div>
 		</div>
-
+    <h1>Bienvenido <?php echo $_SESSION["nombre"] ?> </h1>
     <h1>Lista de Anime</h1><br>
     
    
@@ -27,8 +36,15 @@
         <div id="caratula"><img width="260px" height="370px" src="<?=$item->getCaratula();?>"></div>
         <p class="nom">Nombre:</p><div id="nombre"><?=$item->getNombre();?></div>
         <p class="np">Numero Episodios:</p><div id="nepi"><?=$item->getNepi();?></div>
-        <p class="cate">Categoria:</p><div id="categoria"><?=$item->getCategoria();?></div><br>
+        <p class="cate">Categoria:</p><div id="categoria"><?=$item->getCategoria();?></div>
         <p class="desc">Sinopsis:</p><div id="descripcion"><?=$item->getDescripcion();?></div>
+        <div id="borrar"><a href="index.php?mod=anime&ope=delete&idAni=<?=$item->getIdAni()?>"> Borrar </a></div>
+        <div id="update"><a href="index.php?mod=anime&ope=update&idAni=<?=$item->getIdAni()?>"> Actualizar </a></div>
+
+        <form>
+
+
+        </form>
        
         
         </div>

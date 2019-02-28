@@ -16,6 +16,11 @@ class controllerLista{
             require_once "vista/aniadir.anime.php" ;
         endif;
     }
+
+    public function index(){
+        $valor = ListaAnime::getallAnimeByUsuario() ;
+        require_once "vista/index.lista.php" ;
+    }
     
     
 }

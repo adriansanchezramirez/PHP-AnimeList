@@ -1,11 +1,3 @@
-<?php  
-//iniciamos session
-$sesion=session_start();
-if (isset($_SESSION["nombre"])){
-	header("Location: index.php?mod=anime&ope=aniadir");
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,24 +9,18 @@ if (isset($_SESSION["nombre"])){
     <title>Inicio de Sesión</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/estilo.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 </head>
-<body>
-        <div id="marco">
-            <div id="registro"><a href="index.php?mod=usuario&ope=create">Resgistro</a></div>
-            <div id="animelist"><a href="index.php?mod=anime&ope=index">Lista de Anime</a></div>
-		</div>
-    
+<body>    
     <div class="panel panel-login">
     <div class="panel-heading">
-    <h1>Inicio de Sesión</h1><br>
+    <h1>Inicio de Sesión Admin</h1><br>
     
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-12">
                 <form id="login-form" action="index.php" method="GET" role="form" style="display: block;">
-                <input id="mod" name="mod" type="hidden" value="usuario">
+                <input id="mod" name="mod" type="hidden" value="admin">
                 <input id="ope" name="ope" type="hidden" value="sigin">
                     <div class="form-group">
                         <input type="text" name="nom" id="nom" tabindex="1" class="form-control" placeholder="Usuario" value="">

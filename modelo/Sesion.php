@@ -10,10 +10,6 @@ class Sesion{
         return !empty($_SESSION[$key]) ? $_SESSION[$key] : null ;
     }
 
-    public function getAll(){
-        return $_SESSION ;
-    }
-
     public function close(){
         session_unset();
         session_destroy() ;

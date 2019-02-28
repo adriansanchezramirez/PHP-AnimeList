@@ -1,6 +1,7 @@
 <?php
 require_once "Database.php" ;
 
+
 class Anime {
     private $idAni ;
     private $nombre ;
@@ -8,6 +9,8 @@ class Anime {
     private $categoria ;
     private $descripcion ;
     private $caratula ;
+
+
 
     public function __construct(){}
 
@@ -41,6 +44,43 @@ class Anime {
         return $datos;
     }
 
+    
+        public function insert(){
+            $bd = Database::getInstance();
+            $bd->doQuery("INSERT INTO anime(nombre, nepi, categoria, descripcion, caratula) VALUES (:nom, :nepi, :cat, :descr, :car);",
+            [":nom"=>$this->nombre,
+             ":nepi"=>$this->nepi,
+             ":cat"=>$this->categoria,
+             ":descr"=>$this->descripcion,
+             ":car"=>$this->caratula]) ;
+        }
+    
+
+        public function delete($id){
+            $bd = Database::getInstance() ;
+			$bd->doQuery("DELETE FROM anime WHERE idAni=:ida ;",
+				[ ":ida" => $id ]) ;
+        }
+  
+        public function update()
+		{
+			$bd = Database::getInstance() ;
+			$bd->doQuery("UPDATE anime SET nombre=:nom, nepi=:nepi, categoria=:cat, descripcion=:descr, caratula=:car WHERE idAni=:ida ;",
+				[":nom"=>$this->nombre,
+                 ":nepi"=>$this->nepi,
+                 ":cat"=>$this->categoria,
+                 ":descr"=>$this->descripcion,
+                 ":car"=>$this->caratula,
+                 ":ida"=>$this->idAni]) ;
+        } 
+        
+        public static function getAnime($id) {
+			$bd = Database::getInstance() ;
+			$bd->doQuery("SELECT * FROM anime WHERE idAni=:ida ;",
+				[ ":ida" => $id ]) ;
+
+			return $bd->getRow("Anime") ;
+		}
     
 }
 

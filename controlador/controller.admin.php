@@ -1,9 +1,9 @@
 <?php
 
-require_once "modelo/Usuario.php" ;
+require_once "modelo/Admin.php" ;
 require_once "modelo/Sesion.php" ;
 
-    class controllerUsuario{
+    class controllerAdmin{
 
         private $sesion;
 
@@ -15,7 +15,7 @@ require_once "modelo/Sesion.php" ;
             
                 
                 if(isset($_SESSION["nombre"])){
-                    header("Location: index.php?mod=anime&ope=aniadir");
+                    header("Location: index.php?mod=admin&ope=index");
                 }
                 
                 if($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -28,7 +28,7 @@ require_once "modelo/Sesion.php" ;
                    
                         $db = Database::getInstance();
     
-                        $db->doQuery("SELECT * FROM usuario WHERE nombre=:nom AND password=:pass;",
+                        $db->doQuery("SELECT * FROM admin WHERE nombre=:nom AND password=:pass;",
                                         [":nom" => $nombre,
                                          ":pass" => $password]);
                 
@@ -39,15 +39,15 @@ require_once "modelo/Sesion.php" ;
                      
                         if ($resultado!== false) {
                             $_SESSION["nombre"]=$nombre;
-                            header("Location: index.php?mod=anime&ope=aniadir");
+                            header("Location: vista/index.admin.php");
                             
                         }else{
-                            require_once "vista/index.login.php";
+                            require_once "vista/admin.login.php";
                             echo "El nombre o la contraseña no es correcta";
                         
                         }
                     } else{
-                        require_once "vista/index.login.php";
+                        require_once "vista/admin.login.php";
                     }
                 }
             }
@@ -56,21 +56,6 @@ require_once "modelo/Sesion.php" ;
                 session_start();
                 session_unset();
                 session_destroy();
-                header("Location: index.php?mod=anime&ope=index") ;
+                header("Location: index.php?mod=admin&ope=sigin") ;
             }
-
-        public function create()
-        {
-            if(isset($_GET["nom"])):
-                $usuario = new Usuario();
-                $usuario->setNombre($_GET["nom"]) ;
-                $usuario->setPassword($_GET["pass"]) ;
-                $usuario->setEmail($_GET["ema"]) ;
-
-                $usuario->insert() ;
-                header("location: index.php?mod=anime&ope=index") ;
-            else:
-                require_once "vista/create.usuario.php" ;
-            endif;
         }
-    }
