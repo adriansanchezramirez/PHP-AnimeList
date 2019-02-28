@@ -27,7 +27,7 @@ if (!isset($_SESSION["nombre"])){
 
         <div class="panel panel-login">
     <div class="panel-heading">
-    <h1>Registrando Nuevo Usuario</h1><br>
+    <h1>Actualizando Anime</h1><br>
     
     </div>
     <div class="panel-body">

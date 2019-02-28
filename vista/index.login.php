@@ -1,5 +1,4 @@
 <?php  
-//iniciamos session
 $sesion=session_start();
 if (isset($_SESSION["nombre"])){
 	header("Location: index.php?mod=anime&ope=aniadir");

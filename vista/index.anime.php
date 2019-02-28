@@ -24,8 +24,7 @@ if (isset($_SESSION["nombre"])){
 <body>
     <div id="marco">
 			<div id="inicio"><a href="index.php?mod=usuario&ope=sigin">Iniciar Sesion</a></div>
-            <div id="inicio"><a href="index.php?mod=admin&ope=sigin">Admin</a></div>
-			<div id="registro"><a href="index.php?mod=usuario&ope=create">Registrarse</a></div>
+            <div id="registro"><a href="index.php?mod=usuario&ope=create">Registrarse</a></div>
 		</div>
 
     <h1>Lista de Anime</h1><br>
