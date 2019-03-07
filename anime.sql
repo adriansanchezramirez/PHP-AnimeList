@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-02-2019 a las 22:17:54
+-- Tiempo de generación: 07-03-2019 a las 08:32:19
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -21,25 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `anime`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `admin`
---
-
-CREATE TABLE `admin` (
-  `IdAdmin` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
-  `password` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `admin`
---
-
-INSERT INTO `admin` (`IdAdmin`, `nombre`, `password`) VALUES
-(1, 'Antonio', 'kyloren');
 
 -- --------------------------------------------------------
 
@@ -121,12 +102,6 @@ INSERT INTO `usuario` (`idUsu`, `nombre`, `password`, `email`) VALUES
 --
 
 --
--- Indices de la tabla `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`IdAdmin`);
-
---
 -- Indices de la tabla `anime`
 --
 ALTER TABLE `anime`
@@ -149,12 +124,6 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `admin`
---
-ALTER TABLE `admin`
-  MODIFY `IdAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `anime`
